@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <!-- start head -->
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,45 +32,51 @@
 
 <!-- app_main  -->
 <main class="app_main">
-    <div class="container ">
+    <div class="container">
+        <p class="text_red" id="numeri"></p>
+    </div>
+    <div class="container "> <!-- aggiungere d-none js riga 37 -->
         <div class="row ">
             <div class="col-12 p-2">
-                <p id="numeri"></p>
                 <form>
                     <label>
-                        Indovina il primo numero:
+                        Indovina il 1* numero:
                         <input type="numero" id="numero1">
                     </label>
             </div>
             <div class="col-12 p-2">
                 <label>
-                    Indovina il secondo numero:
+                    <span>
+                        Indovina il 2* numero:
+                    </span>
                     <input type="numero" id="numero2">
                 </label>
             </div>
             <div class="col-12 p-2">
                 <label>
-                    Indovina il terzo numero:
+                    Indovina il 3* numero:
                     <input type="numero" id="numero3">
                 </label>
             </div>
             <div class="col-12 p-2">
                 <label>
-                    Indovina il quarto numero:
+                    Indovina il 4* numero:
                     <input type="numero" id="numero4">
                 </label>
             </div>
             <div class="col-12 p-2">
                 <label>
-                    Indovina il quinto numero:
+                    Indovina il 5* numero:
                     <input type="numero" id="numero5">
                 </label>
             </div>
             <div class="col-12 p-2 ">
-                <button class="btn_submit " type="submit">Controlla</button>
+                <button class="btn_submit m-5" type="submit">Controlla</button>
             </div>
             </form>
-            <p id="risultato"></p>
+            <div class="container text_red">
+                <p id="risultato"></p>
+            </div>
         </div>
     </div>
 </main>
