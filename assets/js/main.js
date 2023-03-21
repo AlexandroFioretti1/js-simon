@@ -27,14 +27,15 @@ timeout
 const numeriEl = document.getElementById("numeri");
 const risultatoEl = document.getElementById("risultato");
 
+/* seleziono il container con d-none  */
+let dNone = document.getElementById("dNone");
+
 // seleziono gli elementi della DOM tramite querySelector
 const formEl = document.querySelector("form");
 
 // generiamo 5 numeri casuali tra 1 e 100 e li mostriamo nella pagina
 const numeriCasuali = [];
 console.log(numeriCasuali, "numeri gererati casualmente");
-
-// rimuovo la classe d none dal container alla fine del timeout per farlo tornare visibile
 
 // creo un ciclo for per la creazione di 5 numeri random da 1 a 100
 for (let i = 0; i < 5; i++) {
@@ -46,6 +47,40 @@ numeriEl.textContent = `Questi sono i 5 numeri che dovete ricordare. In 30 secon
 
 // avvio un timeout di 30 secondi prima che la scritta dei 5 numeri casualmente generati sparisca.
 setTimeout(() => {
+    /* rimuovo dal container la classe d-none per rendere visibile il gioco */
+    dNone.classList.remove("d-none");
   numeriEl.textContent = "";
-}, 30000);
+}, 5000); /* il gioco dice 30 secondi ma per svariate prove ho preferito lasciare a 5 sec */
 
+// creo un FormEL per chiedere all'utente il valore all'interno delle caselle
+formEl.addEventListener("submit", (event) => {
+
+  // evitiamo il comportamento di default del form
+  event.preventDefault();
+  const numeriIndovinati = [];
+  const numero1 = parseInt(document.getElementById("numero1").value);
+  const numero2 = parseInt(document.getElementById("numero2").value);
+  const numero3 = parseInt(document.getElementById("numero3").value);
+  const numero4 = parseInt(document.getElementById("numero4").value);
+  const numero5 = parseInt(document.getElementById("numero5").value);
+
+  // controllo quanti numeri ha indovinato l'utente
+  if (numeriCasuali.includes(numero1)) {
+    numeriIndovinati.push(numero1);
+  }
+  if (numeriCasuali.includes(numero2)) {
+    numeriIndovinati.push(numero2);
+  }
+  if (numeriCasuali.includes(numero3)) {
+    numeriIndovinati.push(numero3);
+  }
+  if (numeriCasuali.includes(numero4)) {
+    numeriIndovinati.push(numero4);
+  }
+  if (numeriCasuali.includes(numero5)) {
+    numeriIndovinati.push(numero5);
+  }
+
+  // seleziono l'elemento della dom e comunico il risultato di quanti numeri sono stati indovinati.
+  risultatoEl.innerHTML = `Hai indovinato ${numeriIndovinati.length} numeri su 5, ricordando la posizione e il valore del numero : ${numeriIndovinati.join()}`;
+});
