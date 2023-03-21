@@ -3,3 +3,18 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.app_header {
+    background-color: gray;
+    text-align: center;
+}
+
+.btn_submit {
+    max-width: 30%;
+    text-align: center;
+    justify-content: center;
+    margin-top: 3rem;
+    background-color: lightgray;
+    border: 0.5px solid gray;
+}
+
