@@ -47,14 +47,14 @@ numeriEl.textContent = `Questi sono i 5 numeri che dovete ricordare. In 30 secon
 
 // avvio un timeout di 30 secondi prima che la scritta dei 5 numeri casualmente generati sparisca.
 setTimeout(() => {
-    /* rimuovo dal container la classe d-none per rendere visibile il gioco */
-    dNone.classList.remove("d-none");
+  /* rimuovo dal container la classe d-none per rendere visibile il gioco */
+  dNone.classList.remove("d-none");
   numeriEl.textContent = "";
 }, 5000); /* il gioco dice 30 secondi ma per svariate prove ho preferito lasciare a 5 sec */
 
 // creo un FormEL per chiedere all'utente il valore all'interno delle caselle
 formEl.addEventListener("submit", (event) => {
-
+    
   // evitiamo il comportamento di default del form
   event.preventDefault();
   const numeriIndovinati = [];
@@ -63,6 +63,7 @@ formEl.addEventListener("submit", (event) => {
   const numero3 = parseInt(document.getElementById("numero3").value);
   const numero4 = parseInt(document.getElementById("numero4").value);
   const numero5 = parseInt(document.getElementById("numero5").value);
+  console.log(numeriIndovinati, "numeri indovinati dall'utente");
 
   // controllo quanti numeri ha indovinato l'utente
   if (numeriCasuali.includes(numero1)) {
@@ -82,5 +83,7 @@ formEl.addEventListener("submit", (event) => {
   }
 
   // seleziono l'elemento della dom e comunico il risultato di quanti numeri sono stati indovinati.
-  risultatoEl.innerHTML = `Hai indovinato ${numeriIndovinati.length} numeri su 5, ricordando la posizione e il valore del numero : ${numeriIndovinati.join()}`;
+  risultatoEl.innerHTML = `Hai indovinato ${
+    numeriIndovinati.length
+  } numeri su 5, ricordando la posizione e il valore del numero : ${numeriIndovinati.join()}`;
 });
